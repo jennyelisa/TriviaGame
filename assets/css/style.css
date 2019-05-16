@@ -1,0 +1,39 @@
+body {
+    background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg");
+    background-repeat: round;
+}
+
+/* body {
+    background: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  } */
+
+.container {
+    background-color: lavender;
+    /* font-family: 'Maiden Orange', cursive; */
+     font-family: 'Barlow Condensed', sans-serif; 
+     font-size: 18px;
+}
+
+.main-head {
+    text-align: center;
+    /* border: 2px solid blue; */
+    font-size: 32px;
+    
+}
+
+p {
+    font-size: 26px;
+}
+
+.question {
+    border: 2px solid purple;
+    font-size: 20px;
+    text-align: center; 
+}
+
+input {
+    padding: 10px;
+}
