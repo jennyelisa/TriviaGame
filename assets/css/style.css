@@ -14,7 +14,23 @@ body {
     background-color: lavender;
     /* font-family: 'Maiden Orange', cursive; */
      font-family: 'Barlow Condensed', sans-serif; 
-     font-size: 18px;
+}
+
+#start-screen, #stats-screen {
+    border:2 px solid black;
+    background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr3.jpg");
+    /* opacity: 0.3; */
+    width:50%;
+    margin: 0 auto;
+    height: 300px;
+    text-align: center;
+}
+
+#timer-start, 
+#timer-done {
+    background-color: lightgreen;
+    color: black;
+
 }
 
 .main-head {
@@ -32,8 +48,4 @@ p {
     border: 2px solid purple;
     font-size: 20px;
     text-align: center; 
-}
-
-input {
-    padding: 10px;
 }
