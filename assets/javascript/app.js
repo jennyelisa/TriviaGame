@@ -30,7 +30,11 @@
 $(document).ready(function() {
     $("#timer-start").on("click", startGame);
     $("#timer-done").on("click", doneGame);
-
+    $("#reset-game").on("click", reset);
+    $('#start-screen').show();
+    $('#game').hide();
+    $('#stats-screen').hide();
+    
     var rightAnswers = 0; 
     var wrongAnswers = 0;
     var noAnswers = 0;
@@ -74,6 +78,9 @@ $(document).ready(function() {
         if(!clockRunning) {
             // starting clock at 30 seconds
             intervalTime = setInterval(function() {
+                $('#start-screen').hide();
+                $('#stats-screen').hide();
+                $('#game').show();
                 
                 // countdown from 30 sec
                 timeRemaining--;
@@ -81,32 +88,78 @@ $(document).ready(function() {
                 // when time is 0 will go to stats page, gameover
                 if(timeRemaining === 0) {
                     doneGame();
+                    $('#game').hide();
+                    $('#stats-screen').show();
                 };
             }, 
             1000);
-
             clockRunning = true;
+
+            //html will go here push  timer
+            $(timeRemaining).html("#timer");
+            creatingAnswers();
+
         }
     }
+
+ function creatingAnswers () {
+        for (var i = 0; i < quotes[0].answers.length; i++) {
+          var radioBtn = ($('<input type="radio"> id="answer" '));
+          $(radioBtn).attr("id", quotes[0].answers[i]);
+          var span = $("<span>");
+          $(span).appendTo("<p>");
+// need to figure out how to creat and append span element. 
+          $(radioBtn).appendTo(".question0");
+
+         radioBtn = ($('<input type="radio"> id="answer" '));
+            $(radioBtn).attr("id", quotes[1].answers[i]);
+            $("#answer").append('<span>');
+            $(radioBtn).appendTo(".question1");
+
+         radioBtn = ($('<input type="radio"> id="answer" '));
+            $(radioBtn).attr("id", quotes[2].answers[i]);
+            $("#answer").append('<span>');
+            $(radioBtn).appendTo(".question2");
+
+         radioBtn = ($('<input type="radio"> id="answer" '));
+            $(radioBtn).attr("id", quotes[3].answers[i]);
+            $("#answer").append('<span>');
+            $(radioBtn).appendTo(".question3");
+
+         radioBtn = ($('<input type="radio"> id="answer" '));
+            $(radioBtn).attr("id", quotes[3].answers[i]);
+            $("#answer").append('<span>');
+            $(radioBtn).appendTo(".question4");
+
+         radioBtn = ($('<input type="radio"> id="answer" '));
+            $(radioBtn).attr("id", quotes[3].answers[i]);
+            $("#answer").append('<span>');
+            $(radioBtn).appendTo(".question5");
+        }
+ }
+
+
+
+
 
     function doneGame() {
         console.log('YA DONE');
         clearInterval(intervalTime);
         clockRunning = false;
+        $('#game').hide();
+        $('#stats-screen').show();
     }
 
-    var startGame= $("#timer-start").on("click", function () {
-        $('#start-screen').show();
-        $('#game').hide();
-
-        //  Set the button alert's timeout to run three seconds after the function's called.
-        // startButton = setTimeout(function () {
-        //     alert("Start Game");
-        // }, 1000);
+    // need reset game function to link reset game button
 
 
+function reset() {
+    $("#start-screen").show();
+    $("#stats-screen").hide();
+}
 
-    });
+
+
 });
 
 

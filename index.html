@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Maiden+Orange" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Disney Trivia Game</title>
+    <title>Trivia Game</title>
 </head>
 
 <body>
@@ -26,43 +26,48 @@
     <div class="container" id="game"> 
         <div class="row">
             <div class="col-md-12 main-head">
-                <h1>Disney Quote Trivia!</h1>
+                <h1>Quote Trivia!</h1>
             </div>
         </div>
         <div class="col-md-12">
-            <div id="timer">
-                <p>Time Remaining: </p>
+            <div >
+                <p id="timer">Time Remaining: </p>
             </div>
-            <div class="question">
-                <p>"Sometimes the right path is not the easiest one."</p>
-            </div>
-            <br>
-            <div class="question">
-                <p>"Ohana means family, and family means no one gets left behind or forgotten."</p>
+            <div >
+                <p class="question0">"Sometimes the right path is not the easiest one."</p>
             </div>
             <br>
-            <div class="question">
-                <p>"The flower that blooms in adversity is the most rare and beaufitul of them all."</p>
+            <div >
+                <p class="question1">"Ohana means family, and family means no one gets left behind or forgotten."</p>
             </div>
             <br>
-            <div class="question">
-                <p>"Ladies do not start fights, but they can finish them."</p>
+            <div >
+                <p class="question2">"The flower that blooms in adversity is the most rare and beaufitul of them all."</p>
             </div>
             <br>
-            <div class="question">
-                <p>"Nothing's impossible."</p>
+            <div >
+                <p class="question3">"Ladies do not start fights, but they can finish them."</p>
             </div>
             <br>
-            <div class="question">
-                <p>"Second star to the right and straight on 'til morning"</p>
+            <div >
+                <p class="question4">"Nothing's impossible."</p>
             </div>
+            <br>
+            <div >
+                <p class="question5">"Second star to the right and straight on 'til morning"</p>
+            </div>
+<div>
+    <button type="button" id="timer-done" class="btn btn-primary btn-lg">Done!</button>
+
+</div>
+
         </div>
     </div>
 
     <div class="container">
         <div class="row" id="stats-screen">
             <div>
-                    <button type="button" id="timer-done"class="btn btn-primary btn-lg">Done!</button>
+                    <button type="button" id="reset-game"class="btn btn-primary btn-lg">Reset Game</button>
                 <!-- <button id="timer-start">DONE!</button> -->
             </div>
         </div>

@@ -1,6 +1,7 @@
 body {
-    background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg");
+    /* background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg"); */
     background-repeat: round;
+    background-color: lemonchiffon;
 }
 
 /* body {
@@ -17,8 +18,9 @@ body {
 }
 
 #start-screen, #stats-screen {
-    border:2 px solid black;
-    background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr3.jpg");
+    border:2px solid black;
+    background-color: blanchedalmond;
+    /* background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr3.jpg"); */
     /* opacity: 0.3; */
     width:50%;
     margin: 0 auto;
@@ -27,7 +29,8 @@ body {
 }
 
 #timer-start, 
-#timer-done {
+#timer-done,
+#reset-game {
     background-color: lightgreen;
     color: black;
 
@@ -40,12 +43,10 @@ body {
     
 }
 
-p {
-    font-size: 26px;
-}
-
-.question {
+.question0, .question1, .question2, .question3,
+.question4, .question5 {
     border: 2px solid purple;
     font-size: 20px;
     text-align: center; 
+    font-size: 26px;
 }
