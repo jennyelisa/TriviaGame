@@ -147,6 +147,9 @@ $(document).ready(function() {
           $(radioBtn).appendTo(".question5");
         }
  }
+// only allow one button to be clicked
+// when game reset, stop answers from appearing again???
+
 
  function checkingAnswers () {
     $('input:radio').click(function() {
