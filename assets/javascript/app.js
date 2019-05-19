@@ -39,7 +39,7 @@ $(document).ready(function() {
     var wrongAnswers = 0;
     var noAnswers = 0;
 
-    var timeRemaining = 30;
+    var timeRemaining = 45;
 
     var intervalTime;
     var clockRunning = false;
@@ -82,7 +82,7 @@ $(document).ready(function() {
                 $('#stats-screen').hide();
                 $('#game').show();
                 
-                // countdown from 30 sec
+                // countdown from 45 sec
                 timeRemaining--;
                 console.log(timeRemaining)
                 // when time is 0 will go to stats page, gameover
@@ -96,7 +96,7 @@ $(document).ready(function() {
             clockRunning = true;
 
             //html will go here push  timer
-            $(timeRemaining).html("#timer");
+            $(timeRemaining).text("#timer");
             creatingAnswers();
 
         }
@@ -104,42 +104,42 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" '));
+          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" name="pickedAnswer"  '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
           $(span).attr("id", quotes[0].answers[i])
           $(span).text(quotes[0].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question0");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
           $(radioBtn).attr("id", quotes[1].answers[i]);
           var span1 = $("<span>");
           $(span1).attr("id", quotes[1].answers[i]);
           $(span1).text(quotes[1].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question1");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
           $(radioBtn).attr("id", quotes[2].answers[i]);
           var span2 = $("<span>");
           $(span2).attr("id", quotes[2].answers[i]);
           $(span2).text(quotes[2].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question2");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
           $(radioBtn).attr("id", quotes[3].answers[i]);
           var span3 = $("<span>");
           $(span3).attr("id", quotes[3].answers[i]);
           $(span3).text(quotes[3].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question3");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
           $(radioBtn).attr("id", quotes[4].answers[i]);
           var span4 = $("<span>");
           $(span4).attr("id", quotes[4].answers[i]);
           $(span4).text(quotes[4].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question4");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
           $(radioBtn).attr("id", quotes[5].answers[i]);
           var span5 = $("<span>");
           $(span5).attr("id", quotes[5].answers[i]);
@@ -148,6 +148,18 @@ $(document).ready(function() {
         }
  }
 
+ function checkingAnswers () {
+    $('input:radio').click(function() {
+        $('input:radio').not(this).prop('checked', false);
+    });
+    // $("input[name='pickedAnswer']:checked").val();
+    // var radioValue = "";
+    //  if (radioValue){
+    //      alert("did it work");
+    //  }
+ }
+
+checkingAnswers();
 
 
 
@@ -158,6 +170,8 @@ $(document).ready(function() {
         clockRunning = false;
         $('#game').hide();
         $('#stats-screen').show();
+        
+
     }
 
     // need reset game function to link reset game button
@@ -169,10 +183,12 @@ function reset() {
 }
 
 
+// document.getElementById('rightAnswer').innerHTML = "Correct answers " + rightAnswers;
+// document.getElementById('wrongAnswer').textContent = "Incorrect answers " + wrongAnswers;
+// document.getElementById('noAnswer').textContent = "Unanswered " + noAnswers;
+
 
 });
-
-
 
 
 
