@@ -104,17 +104,19 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<input type="radio"> id="answer" '));
+          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
-          $(span).appendTo("<p>");
-// need to figure out how to creat and append span element. 
-          $(radioBtn).appendTo(".question0");
+          $(span).attr("id", quotes[0].answers[i])
+          $(span).text(quotes[0].answers[i]).appendTo(radioBtn);
+         $(radioBtn).appendTo(".question0");
 
-         radioBtn = ($('<input type="radio"> id="answer" '));
-            $(radioBtn).attr("id", quotes[1].answers[i]);
-            $("#answer").append('<span>');
-            $(radioBtn).appendTo(".question1");
+         radioBtn = ($('<label for=""> <input type="radio"> id="answer" '));
+          $(radioBtn).attr("id", quotes[1].answers[i]);
+          var span = $("<span>");
+          $(span).attr("id", quotes[1].answers[i])
+          $(span).text(quotes[1].answers[i]).appendTo(radioBtn);
+          $(radioBtn).append(".question1");
 
          radioBtn = ($('<input type="radio"> id="answer" '));
             $(radioBtn).attr("id", quotes[2].answers[i]);
