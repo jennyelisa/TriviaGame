@@ -1,25 +1,18 @@
 body {
-    /* background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg"); */
-    background-repeat: round;
-    background-color: lemonchiffon;
+    background-image: url("../images/bkgr5.jpg"); 
+    background-repeat: no-repeat;
+    /* background-color: lemonchiffon; */
+    background-size: cover;
 }
 
-/* body {
-    background: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr.jpeg") no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
-  } */
-
 .container {
-    background-color: lavender;
-    /* font-family: 'Maiden Orange', cursive; */
+    /* background-color: lavender; */
      font-family: 'Barlow Condensed', sans-serif; 
 }
 
 #start-screen, #stats-screen {
     border:2px solid black;
-    background-color: blanchedalmond;
+    background-color: lavender;
     /* background-image: url("/Users/jennyhernandez/Desktop/TriviaGame/assets/images/bkgr3.jpg"); */
     /* opacity: 0.3; */
     width:50%;
@@ -29,11 +22,17 @@ body {
 }
 
 #timer-start, 
-#timer-done,
-#reset-game {
+#timer-done, 
+#reset-game{
     background-color: lightgreen;
     color: black;
+    /* text-align: center; */
+    width:50%;
+}
 
+.start-instruction {
+    font-size: 47px;
+    color:grey;
 }
 
 .main-head {
@@ -46,6 +45,7 @@ body {
 .question0, .question1, .question2, .question3,
 .question4, .question5 {
     border: 2px solid purple;
+    background-color: lavender;
     font-size: 20px;
     text-align: center; 
     font-size: 26px;

@@ -104,42 +104,42 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" name="pickedAnswer"  '));
+          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" name="pickedAnswer0"  '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
           $(span).attr("id", quotes[0].answers[i])
           $(span).text(quotes[0].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question0");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer1" '));
           $(radioBtn).attr("id", quotes[1].answers[i]);
           var span1 = $("<span>");
           $(span1).attr("id", quotes[1].answers[i]);
           $(span1).text(quotes[1].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question1");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer2" '));
           $(radioBtn).attr("id", quotes[2].answers[i]);
           var span2 = $("<span>");
           $(span2).attr("id", quotes[2].answers[i]);
           $(span2).text(quotes[2].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question2");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer3" '));
           $(radioBtn).attr("id", quotes[3].answers[i]);
           var span3 = $("<span>");
           $(span3).attr("id", quotes[3].answers[i]);
           $(span3).text(quotes[3].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question3");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer4" '));
           $(radioBtn).attr("id", quotes[4].answers[i]);
           var span4 = $("<span>");
           $(span4).attr("id", quotes[4].answers[i]);
           $(span4).text(quotes[4].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question4");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer" '));
+          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer5" '));
           $(radioBtn).attr("id", quotes[5].answers[i]);
           var span5 = $("<span>");
           $(span5).attr("id", quotes[5].answers[i]);
