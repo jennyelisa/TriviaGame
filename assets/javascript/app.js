@@ -39,7 +39,7 @@ $(document).ready(function() {
     var wrongAnswers = 0;
     var noAnswers = 0;
 
-    var timeRemaining = 10;
+    var timeRemaining = 1000;
     $(timeRemaining).html("#timer");  //why doesnt it like this???? anywhere?
     var intervalTime;
     var clockRunning = false;
@@ -96,7 +96,7 @@ $(document).ready(function() {
             1000);
             clockRunning = true;
 
-            //nned rto make time display to game screen
+            //need to make time display to game screen
             
             creatingAnswers();
 
