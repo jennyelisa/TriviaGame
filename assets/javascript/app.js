@@ -39,8 +39,8 @@ $(document).ready(function() {
     var wrongAnswers = 0;
     var noAnswers = 0;
 
-    var timeRemaining = 45;
-
+    var timeRemaining = 10;
+    $(timeRemaining).html("#timer");  //why doesnt it like this???? anywhere?
     var intervalTime;
     var clockRunning = false;
     var quotes = [{
@@ -50,8 +50,8 @@ $(document).ready(function() {
     },
     {
         q2: "Ohana means family, and family means no one gets left behind or forgotten.",
-        answers: ['Lilo &amp; Stitch', 'Mulan', 'Cinderella', 'Fox &amp; the Hound'],
-        correct: 'Lilo &amp; Stitch'
+        answers: ['Lilo & Stitch', 'Mulan', 'Cinderella', 'Fox & the Hound'],
+        correct: 'Lilo & Stitch'
     },
     {
         q3: "The flower that blooms in adversity is the most rare and beaufitul of them all.",
@@ -65,7 +65,7 @@ $(document).ready(function() {
     },
     {   
         q5: "Nothing's impossible.",
-        answers: ['Dumbo', 'Lilo &amp; Stitch', 'Finding Nemo', 'Alice in Wonderland'],
+        answers: ['Dumbo', 'Lilo & Stitch', 'Finding Nemo', 'Alice in Wonderland'],
         correct: 'Alice in Wonderland'
     },
     {   q6: "Second star to the right and straight on 'til morning",
@@ -85,6 +85,7 @@ $(document).ready(function() {
                 // countdown from 45 sec
                 timeRemaining--;
                 console.log(timeRemaining)
+                // $(timeRemaining).appendTo("#timer");  doesnt like this?
                 // when time is 0 will go to stats page, gameover
                 if(timeRemaining === 0) {
                     doneGame();
@@ -95,8 +96,8 @@ $(document).ready(function() {
             1000);
             clockRunning = true;
 
-            //html will go here push  timer
-            $(timeRemaining).text("#timer");
+            //nned rto make time display to game screen
+            
             creatingAnswers();
 
         }
@@ -104,42 +105,42 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<label for=""> <input type="radio"> id="answer" name="pickedAnswer0"  '));
+          var radioBtn = ($('<label for=""> <input type="radio" id="answer" name="pickedAnswer0">  '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
-          $(span).attr("id", quotes[0].answers[i])
+          $(span).attr("id", quotes[0].answers[i]);
           $(span).text(quotes[0].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question0");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer1" '));
+          radioBtn = ($('<label for=""><input type="radio" id="answer" name="pickedAnswer1"> '));
           $(radioBtn).attr("id", quotes[1].answers[i]);
           var span1 = $("<span>");
           $(span1).attr("id", quotes[1].answers[i]);
           $(span1).text(quotes[1].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question1");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer2" '));
+          radioBtn = ($('<label for=""><input type="radio" id="answer" name="pickedAnswer2"> '));
           $(radioBtn).attr("id", quotes[2].answers[i]);
           var span2 = $("<span>");
           $(span2).attr("id", quotes[2].answers[i]);
           $(span2).text(quotes[2].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question2");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer3" '));
+          radioBtn = ($('<label for=""><input type="radio" id="answer" name="pickedAnswer3"> '));
           $(radioBtn).attr("id", quotes[3].answers[i]);
           var span3 = $("<span>");
           $(span3).attr("id", quotes[3].answers[i]);
           $(span3).text(quotes[3].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question3");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer4" '));
+          radioBtn = ($('<label for=""><input type="radio" id="answer" name="pickedAnswer4"> '));
           $(radioBtn).attr("id", quotes[4].answers[i]);
           var span4 = $("<span>");
           $(span4).attr("id", quotes[4].answers[i]);
           $(span4).text(quotes[4].answers[i]).appendTo(radioBtn);
           $(radioBtn).appendTo(".question4");
 
-          radioBtn = ($('<label for=""><input type="radio"> id="answer" name="pickedAnswer5" '));
+          radioBtn = ($('<label for=""><input type="radio" id="answer" name="pickedAnswer5"> '));
           $(radioBtn).attr("id", quotes[5].answers[i]);
           var span5 = $("<span>");
           $(span5).attr("id", quotes[5].answers[i]);
@@ -152,17 +153,16 @@ $(document).ready(function() {
 
 
  function checkingAnswers () {
-    $('input:radio').click(function() {
-        $('input:radio').not(this).prop('checked', false);
-    });
-    // $("input[name='pickedAnswer']:checked").val();
-    // var radioValue = "";
-    //  if (radioValue){
-    //      alert("did it work");
-    //  }
+    if ($("input[type='radio'][class='question0'][id ='Pocahantas']:checked").val()) {
+        alert('p is right');
+        rightAnswers++;
+    }
+    else {
+      console.log('Wrong');
+        wrongAnswers++;
+    }
  }
 
-checkingAnswers();
 
 
 
@@ -174,15 +174,24 @@ checkingAnswers();
         $('#game').hide();
         $('#stats-screen').show();
         
+        if (rightAnswers <= 3) {
+            alert("Nice Try!")
+        } else if (rightAnswers >= 4) {
+            alert("Good Job!")
+        };
+
+        
 
     }
-
+$(rightAnswers).appendTo("#results");
+$(wrongAnswers).appendTo("#results");
     // need reset game function to link reset game button
 
 
 function reset() {
     $("#start-screen").show();
     $("#stats-screen").hide();
+    // creatingAnswers();
 }
 
 
@@ -192,17 +201,3 @@ function reset() {
 
 
 });
-
-
-
-
-
-
-// setTimeout(thirtySeconds, 1000 * 30); //this should be the timer at the start with a on click
-// setTimeout(timeUp, 1000 * 10); //this should be the end times up go to stats page
-
-// var doneButton;
-// $("#timer-done").on("click", function () {
-//     // Clear the button alert's timeout.
-//     clearTimeout(doneButton);
-// });
