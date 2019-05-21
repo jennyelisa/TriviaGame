@@ -39,8 +39,7 @@ $(document).ready(function() {
     var wrongAnswers = 0;
     var noAnswers = 0;
 
-    var timeRemaining = 1000;
-    $(timeRemaining).html("#timer");  //why doesnt it like this???? anywhere?
+    var timeRemaining = 100;
     var intervalTime;
     var clockRunning = false;
     var quotes = [{
@@ -85,7 +84,9 @@ $(document).ready(function() {
                 // countdown from 45 sec
                 timeRemaining--;
                 console.log(timeRemaining)
-                // $(timeRemaining).appendTo("#timer");  doesnt like this?
+                var timeClock = $("<p>");
+                timeClock.html(timeRemaining).appendTo("#timer");
+                // this works but each second is shown!!!!!
                 // when time is 0 will go to stats page, gameover
                 if(timeRemaining === 0) {
                     doneGame();
@@ -95,9 +96,8 @@ $(document).ready(function() {
             }, 
             1000);
             clockRunning = true;
-
-            //need to make time display to game screen
-            
+           
+            // Math.floor((t % (1000 * 60)) / 1000); calculates seconds??
             creatingAnswers();
 
         }
@@ -152,16 +152,16 @@ $(document).ready(function() {
 // when game reset, stop answers from appearing again???
 
 
-// function checkingAnswers () {
-//     // if ($("input[type='radio'][class='question0'][id ='Pocahantas']:checked").val()) {
-//     //     if ($(radioBtn).attr("checked", "checked")) {
-//     //     console.log('p is right');
-//     //     rightAnswers++;
-//     // }
-//     // else {
-//     //   console.log('Wrong');
-//     //     wrongAnswers++;
-//     // }
+function checkingAnswers () {
+    if ($("input[type='radio'][class='question0'][id ='answer']:checked").val()) {
+        if ($(radioBtn).attr("checked", "checked")) {
+        console.log('p is right');
+        rightAnswers++;
+    }
+    else {
+      console.log('Wrong');
+        wrongAnswers++;
+    }
 
 // for(var i = 1; i <= 45; i++) {
 //   var radios = document.getElementsByName("pickedAnswer0" + i);
@@ -171,12 +171,12 @@ $(document).ready(function() {
 //       rightAnswers++;
 //     }
 //   }
-// }
-// }
+ }
+}
 
 
 $('#timer-done').click(function() {
-    if (!$("input[name='pickedAnswer0']:checked").val()) {
+    if (!$("input[id='answer']:checked").val()) {
        alert('Nothing is checked!');
         return false;
     } if (!$("input[name='pickedAnswer1']:checked").val()) {
@@ -221,8 +221,12 @@ $('#timer-done').click(function() {
  
 
     }
-$(rightAnswers).html("#correct");
-$(wrongAnswers).html("#incorrect");
+    var rightAnswerDom = $("<p>");
+    rightAnswerDom.text(rightAnswers).appendTo("#correct");
+
+    var wrongAnswerDom = $("<p>");
+    wrongAnswerDom.text(wrongAnswers).appendTo("#incorrect");
+
     // need reset game function to link reset game button
 
 
