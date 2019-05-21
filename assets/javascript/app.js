@@ -39,7 +39,7 @@ $(document).ready(function() {
     var wrongAnswers = 0;
     var noAnswers = 0;
 
-    var timeRemaining = 100;
+    var timeRemaining = 60;
     var intervalTime;
     var clockRunning = false;
     var quotes = [{
@@ -84,8 +84,8 @@ $(document).ready(function() {
                 // countdown from 45 sec
                 timeRemaining--;
                 console.log(timeRemaining)
-                var timeClock = $("<p>");
-                timeClock.html(timeRemaining).appendTo("#timer");
+                // var timeClock = $("<p>");
+                // timeClock.html(timeRemaining).appendTo("#timer");
                 // this works but each second is shown!!!!!
                 // when time is 0 will go to stats page, gameover
                 if(timeRemaining === 0) {
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<label for=""> <input type="radio" id="answer" name="pickedAnswer0"> '));
+          var radioBtn = ($('<label for=""> <input type="radio" id="" name="pickedAnswer0"> '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
           $(span).attr("id", quotes[0].answers[i]);
@@ -148,8 +148,8 @@ $(document).ready(function() {
           $(radioBtn).appendTo(".question5");
         }
  }
-// only allow one button to be clicked
-// when game reset, stop answers from appearing again???
+// when game reset button clicked, stop answers from appearing again???
+
 
 
 function checkingAnswers () {
@@ -163,7 +163,7 @@ function checkingAnswers () {
         wrongAnswers++;
     }
 
-// for(var i = 1; i <= 45; i++) {
+// for(var i = 1; i <= ; i++) {
 //   var radios = document.getElementsByName("pickedAnswer0" + i);
 //   for(var j = 0; j < radios.length; j++) {
 //     var radio = radioBtn[j];
@@ -176,30 +176,34 @@ function checkingAnswers () {
 
 
 $('#timer-done').click(function() {
-    if (!$("input[id='answer']:checked").val()) {
-       alert('Nothing is checked!');
-        return false;
-    } if (!$("input[name='pickedAnswer1']:checked").val()) {
-        alert('Nothing is checked!');
+    // if (!$("input[type='radio'][class='question0'][id ='answer']:checked").val()) {
+    //    alert('Nothing is checked!');
+    //     return false;
+    if (!$("input[id='pocahantas']:checked").val()) {
+        console.log('!');
+         return false; 
+    } if (!$("input[id='lilo $ stitch']:checked").val()) {
+        console.log('Nothing is 1!');
          return false; 
     } if (!$("input[name='pickedAnswer2']:checked").val()) {
-        alert('Nothing is checked!');
+        console.log('Nothing is checked!2');
          return false;
     } if (!$("input[name='pickedAnswer3']:checked").val()) {
-        alert('Nothing is checked!');
+        console.log('Nothing is checked3!');
          return false;
     }if (!$("input[name='pickedAnswer4']:checked").val()) {
-        alert('Nothing is checked!');
+        console.log('Nothing is checked4!');
          return false;
     }if (!$("input[name='pickedAnswer5']:checked").val()) {
-        alert('Nothing is checked!');
+        console.log('Nothing is checked5!');
          return false;
     }
     else {
-      console.log("something clicked");
+      alert("something clicked");
       wrongAnswers++;
-      $(wrongAnswers).text("#incorrect");
+    //   $(wrongAnswers).text("#incorrect");
     }
+    rightAnswers++;
   });
       //this does check if every question has an answer otherwise it says nothing is checked
  
@@ -214,7 +218,7 @@ $('#timer-done').click(function() {
         $('#stats-screen').show();
         //this works if i change the number of right/wrong answers
         if (rightAnswers <= 3) {
-            alert("Nice Try!")
+            alert("Nice Try!");
         } else if (rightAnswers >= 4) {
             alert("Good Job!")
         };
@@ -222,6 +226,7 @@ $('#timer-done').click(function() {
 
     }
     var rightAnswerDom = $("<p>");
+    // $(rightAnswerDom).attr("id", correct);
     rightAnswerDom.text(rightAnswers).appendTo("#correct");
 
     var wrongAnswerDom = $("<p>");
