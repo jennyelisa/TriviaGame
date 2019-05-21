@@ -105,7 +105,7 @@ $(document).ready(function() {
 
  function creatingAnswers () {
         for (var i = 0; i < quotes[0].answers.length; i++) {
-          var radioBtn = ($('<label for=""> <input type="radio" id="answer" name="pickedAnswer0">  '));
+          var radioBtn = ($('<label for=""> <input type="radio" id="answer" name="pickedAnswer0"> '));
           $(radioBtn).attr("id", quotes[0].answers[i]);
           var span = $("<span>");
           $(span).attr("id", quotes[0].answers[i]);
@@ -152,18 +152,57 @@ $(document).ready(function() {
 // when game reset, stop answers from appearing again???
 
 
- function checkingAnswers () {
-    if ($("input[type='radio'][class='question0'][id ='Pocahantas']:checked").val()) {
-        alert('p is right');
-        rightAnswers++;
+// function checkingAnswers () {
+//     // if ($("input[type='radio'][class='question0'][id ='Pocahantas']:checked").val()) {
+//     //     if ($(radioBtn).attr("checked", "checked")) {
+//     //     console.log('p is right');
+//     //     rightAnswers++;
+//     // }
+//     // else {
+//     //   console.log('Wrong');
+//     //     wrongAnswers++;
+//     // }
+
+// for(var i = 1; i <= 45; i++) {
+//   var radios = document.getElementsByName("pickedAnswer0" + i);
+//   for(var j = 0; j < radios.length; j++) {
+//     var radio = radioBtn[j];
+//     if(radioBtn.value === "correct" && radio.checked) {
+//       rightAnswers++;
+//     }
+//   }
+// }
+// }
+
+
+$('#timer-done').click(function() {
+    if (!$("input[name='pickedAnswer0']:checked").val()) {
+       alert('Nothing is checked!');
+        return false;
+    } if (!$("input[name='pickedAnswer1']:checked").val()) {
+        alert('Nothing is checked!');
+         return false; 
+    } if (!$("input[name='pickedAnswer2']:checked").val()) {
+        alert('Nothing is checked!');
+         return false;
+    } if (!$("input[name='pickedAnswer3']:checked").val()) {
+        alert('Nothing is checked!');
+         return false;
+    }if (!$("input[name='pickedAnswer4']:checked").val()) {
+        alert('Nothing is checked!');
+         return false;
+    }if (!$("input[name='pickedAnswer5']:checked").val()) {
+        alert('Nothing is checked!');
+         return false;
     }
     else {
-      console.log('Wrong');
-        wrongAnswers++;
+      console.log("something clicked");
+      wrongAnswers++;
+      $(wrongAnswers).text("#incorrect");
     }
- }
-
-
+  });
+      //this does check if every question has an answer otherwise it says nothing is checked
+ 
 
 
 
@@ -173,18 +212,17 @@ $(document).ready(function() {
         clockRunning = false;
         $('#game').hide();
         $('#stats-screen').show();
-        
+        //this works if i change the number of right/wrong answers
         if (rightAnswers <= 3) {
             alert("Nice Try!")
         } else if (rightAnswers >= 4) {
             alert("Good Job!")
         };
-
-        
+ 
 
     }
-$(rightAnswers).appendTo("#results");
-$(wrongAnswers).appendTo("#results");
+$(rightAnswers).html("#correct");
+$(wrongAnswers).html("#incorrect");
     // need reset game function to link reset game button
 
 
