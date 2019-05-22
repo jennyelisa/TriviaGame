@@ -222,6 +222,8 @@ $('#timer-done').click(function() {
 
 
     function doneGame() {
+        rightAnswers=0;
+        wrongAnswers=0;
         console.log('GAMEOVER!');
         clearInterval(intervalTime);
         clockRunning = false;
